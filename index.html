@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pendaftaran Grup Astronomi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    input, textarea {
+      width: 80%;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #card {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, #8b0000, #ff0000);
+      border-radius: 15px;
+      color: white;
+      background-image: url('https://www.transparenttextures.com/patterns/batthern.png');
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pendaftaran Grup Astronomi</h1>
+
+  <input type="text" id="nama" placeholder="Nama"><br>
+  <input type="number" id="umur" placeholder="Umur"><br>
+  <textarea id="alasan" placeholder="Alasan masuk"></textarea><br>
+  <textarea id="pertanyaan" placeholder="Apa yang kamu ketahui tentang astronomi?"></textarea><br>
+
+  <button onclick="daftar()">Daftar</button>
+
+  <h2 id="hasil"></h2>
+
+  <div id="card">
+    <h2>Kartu Anggota</h2>
+    <p id="cardNama"></p>
+    <p id="cardUmur"></p>
+  </div>
+
+  <script>
+    function daftar() {
+      let nama = document.getElementById("nama").value;
+      let umur = document.getElementById("umur").value;
+
+      if (!nama || !umur) {
+        alert("Isi dulu yang bener, jangan setengah-setengah hidupnya.");
+        return;
+      }
+
+      // 99% lulus
+      let lulus = Math.random() < 0.99;
+
+      if (lulus) {
+        document.getElementById("hasil").innerText = "Selamat! Kamu LULUS 🎉";
+
+        document.getElementById("card").style.display = "block";
+        document.getElementById("cardNama").innerText = "Nama: " + nama;
+        document.getElementById("cardUmur").innerText = "Umur: " + umur;
+
+        setTimeout(() => {
+          window.location.href = "https://chat.whatsapp.com/FoSwKMkxAbo1gJivS3j8mS?mode=gi_t";
+        }, 5000);
+
+      } else {
+        document.getElementById("hasil").innerText = "Maaf, kamu belum lulus 😢";
+      }
+    }
+  </script>
+
+</body>
+</html>
